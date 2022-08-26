@@ -9,7 +9,7 @@
 } */
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: sans-serif, Roboto;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -77,4 +77,24 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+// rimac common titles
+
+.main-title {
+  font-size: 36px;
+}
+
+.red-title {
+  color: #EF3340
+}
+
+.title-regular {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.paragraph-regular {
+  font-size: 16px;
+  line-height: 28px;
 }
