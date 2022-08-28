@@ -1,9 +1,10 @@
 .main__button {
-  background-color: red;
   border-radius: 8px;
   padding: 20px 32px;
-  // font-family: 'Roboto';
   &--fullwidth {
-    width: 100%
+    width: 100%;
+  }
+  @include md {
+    background: blue
   }
 }

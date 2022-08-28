@@ -1,11 +1,18 @@
-import { Button } from '@components'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import { Home, MakeYourPlan } from '@/pages'
+import { Layout } from '@/components/'
 
 function App () {
   return (
-    <div className='App'>
-      <Button className='blue' handleClick={() => console.log('clicked')} />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='/arma-tu-plan' element={<MakeYourPlan />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

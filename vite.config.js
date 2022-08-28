@@ -3,12 +3,20 @@ import react from '@vitejs/plugin-react'
 import { VitePluginFonts } from 'vite-plugin-fonts'
 import path from 'path'
 
-// https://vitejs.dev/config/
+const relativePath = path.resolve(__dirname, './src')
+
 export default defineConfig({
+  define: {
+    theme: {
+      md: '(min-width: 480px)'
+    }
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components')
+      '@components': path.resolve(__dirname, './src/components'),
+      '@atoms': path.resolve(__dirname, './src/components/UI/atoms'),
+      '@hooks': path.resolve(__dirname, './src/hooks')
     }
   },
   plugins: [react(),
@@ -20,5 +28,12 @@ export default defineConfig({
         ]
       }
     })
-  ]
+  ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "${relativePath}/scss/general";`
+      }
+    }
+  }
 })

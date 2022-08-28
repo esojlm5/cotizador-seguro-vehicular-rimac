@@ -1,0 +1,24 @@
+.container__custom {
+  @include md {
+    display: flex;
+  }
+}
+
+.secure__info {
+  text-align: left;
+  &--new {
+    font-size: 10px;
+    margin: 0;
+  }
+  &--title {
+    font-size: 28px;
+    font-family: Lato;
+    margin: 8px 0px 12px 0px;
+    span {
+      color: $rimac-red
+    }
+  }
+  &--description {
+    font-size: 14px;
+  }
+}
