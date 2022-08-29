@@ -6,11 +6,6 @@ import path from 'path'
 const relativePath = path.resolve(__dirname, './src')
 
 export default defineConfig({
-  define: {
-    theme: {
-      md: '(min-width: 480px)'
-    }
-  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -35,5 +30,11 @@ export default defineConfig({
         additionalData: `@import "${relativePath}/scss/general";`
       }
     }
+  },
+  server: {
+    port: 3030
+  },
+  preview: {
+    port: 8080
   }
 })

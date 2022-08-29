@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import { clsx } from 'clsx'
 
 import { UseClickOutside } from '@hooks'
-import styles from './style.module.scss'
+import { InputWrap } from './style'
 
 const Input = ({ label, onChange, className, onClick, name, ...props }) => {
   const inputRef = useRef(null)
@@ -27,13 +26,10 @@ const Input = ({ label, onChange, className, onClick, name, ...props }) => {
   }
 
   return (
-    <div
+    <InputWrap
       ref={containerRef}
-      className={clsx([
-        styles.container_base_input,
-        className,
-        (focused || value.length) && styles.focused
-      ])}
+      focused={focused || value.length}
+      className={className}
       onClick={handleClick}
     >
       <label>{label}</label>
@@ -45,7 +41,7 @@ const Input = ({ label, onChange, className, onClick, name, ...props }) => {
         value={value}
         {...props}
       />
-    </div>
+    </InputWrap>
   )
 }
 

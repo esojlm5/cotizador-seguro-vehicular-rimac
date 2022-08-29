@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from 'react'
-import { clsx } from 'clsx'
 import { useMedia } from 'react-use'
 
-import { ThemeContext } from '@/context/ThemeProvider'
-import { Container } from '@components'
-import styles from './style.module.scss'
+import { ThemeContext } from 'styled-components'
+
+import { Container, LoginForm } from '@components'
+import { TitleRimac, Paragraph, Button } from '@atoms'
+import { ContainerSecure, WrapperSecure } from './style'
 
 const HomeContainer = () => {
   const theme = useContext(ThemeContext)
@@ -15,20 +16,26 @@ const HomeContainer = () => {
   }, [])
 
   return (
-    <Container className={clsx(styles.container__custom)}>
-      <div className={styles.secure__info}>
-        <h5 className={styles['secure__info--new']}>¡NUEVO!</h5>
-        <h3 className={styles['secure__info--title']}>
-          Seguro Vehicular <span>Tracking</span>
-        </h3>
-        <p className={styles['secure__info--description']}>
-          Cuentanos donde le haras seguimiento a tu seguro
-        </p>
-      </div>
-      <div className={styles.form__container}>
-        <h3>Déjanos tus datos</h3>
-      </div>
-    </Container>
+    <WrapperSecure>
+      <ContainerSecure>
+        <div className='secure-info'>
+          <h5>¡NUEVO!</h5>
+          <TitleRimac maxW={220}>
+            Seguro Vehicular <span>Tracking</span>
+          </TitleRimac>
+          <Paragraph fontFamily='Roboto' fsz={14} maxW={183}>
+            Cuentanos donde le haras seguimiento a tu seguro
+          </Paragraph>
+        </div>
+      </ContainerSecure>
+      <Container className='form-container'>
+        <TitleRimac fsz={24} fszMd={28}>
+          Déjanos tus datos
+        </TitleRimac>
+        <LoginForm />
+        <Button text='cotízalo' fullWidth />
+      </Container>
+    </WrapperSecure>
   )
 }
 

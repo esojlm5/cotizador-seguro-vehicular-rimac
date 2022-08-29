@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { ThemeContext, themes } from '@/context/ThemeProvider'
+import ThemeStyled from '@/context/ThemeProvider'
 import App from './App'
-import './index.scss'
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeContext.Provider value={themes}>
+    <ThemeStyled>
       <App />
-    </ThemeContext.Provider>
+    </ThemeStyled>
   </React.StrictMode>
 )

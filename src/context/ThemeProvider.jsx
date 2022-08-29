@@ -1,14 +1,24 @@
-import React, { createContext } from 'react'
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
 
-export const themes = {
+export const theme = {
   breakpoints: {
     md: '(min-width: 40rem)'
+  },
+  colors: {
+    red: 'rgb(235 33 70)',
+    grayTitle: '#494F66',
+    grayParagraph: '#676F8F',
+    placeHolder: '#A9AFD9'
+  },
+  hover: {
+    button: '#EF3340'
   }
 }
-export const ThemeContext = createContext(themes)
+// export const ThemeContext = createContext(theme)
 
-const ThemeProvider = ({ children }) => {
-  return <ThemeContext.Provider>{children}</ThemeContext.Provider>
+const ThemeStyled = ({ children }) => {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 
-export default ThemeProvider
+export default ThemeStyled
