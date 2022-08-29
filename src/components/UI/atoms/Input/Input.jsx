@@ -1,18 +1,33 @@
 import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
+import { useFormContext } from 'react-hook-form'
 
 import { UseClickOutside } from '@hooks'
 import { InputWrap } from './style'
 
-const Input = ({ label, onChange, className, onClick, name, ...props }) => {
+const Input = ({
+  label,
+  onChange,
+  className,
+  onClick,
+  name,
+  hookform,
+  // register,
+  ...props
+}) => {
   const inputRef = useRef(null)
   const containerRef = useRef(null)
+  const methods = useFormContext()
   const [value, setValue] = useState('')
   const [focused, setFocused] = useState(false)
   UseClickOutside(containerRef, setFocused, false)
 
   const handleClick = e => {
-    inputRef.current.focus()
+    if (hookform) {
+      methods.setFocus(name)
+    } else {
+      inputRef.current.focus()
+    }
     setFocused(true)
     if (onClick) {
       onClick()
@@ -28,25 +43,36 @@ const Input = ({ label, onChange, className, onClick, name, ...props }) => {
   return (
     <InputWrap
       ref={containerRef}
-      focused={focused || value.length}
+      focused={
+        focused || (hookform ? methods.getValues()[name]?.length : value.length)
+      }
       className={className}
       onClick={handleClick}
     >
       <label>{label}</label>
-      <input
-        type='text'
-        ref={inputRef}
-        name={name}
-        onChange={handleChange}
-        value={value}
-        {...props}
-      />
+      {hookform ? (
+        <input
+          type='text'
+          name={name}
+          {...methods.register(name, { required: true })}
+          {...props}
+        />
+      ) : (
+        <input
+          type='text'
+          ref={inputRef}
+          name={name}
+          onChange={handleChange}
+          value={value}
+        />
+      )}
     </InputWrap>
   )
 }
 
 Input.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 Input.defaultProps = {

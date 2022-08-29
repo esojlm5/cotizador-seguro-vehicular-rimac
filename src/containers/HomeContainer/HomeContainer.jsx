@@ -33,7 +33,6 @@ const HomeContainer = () => {
           Déjanos tus datos
         </TitleRimac>
         <LoginForm />
-        <Button text='cotízalo' fullWidth />
       </Container>
     </WrapperSecure>
   )
