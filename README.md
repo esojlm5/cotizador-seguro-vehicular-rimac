@@ -33,3 +33,7 @@ This is an example of how to list things you need to use the software and how to
 1. clone the project
 2. yarn install
 3. yarn dev
+
+### Login
+
+the first field Nro dni should be 'Bret' the next inputs can be any value
