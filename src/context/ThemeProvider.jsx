@@ -13,11 +13,13 @@ import { ThemeProvider } from 'styled-components'
 export const theme = {
   maxWidth: {
     md: '40rem',
-    xl: '60rem'
+    lg: '70rem',
+    xl: '80rem'
   },
   breakpoints: {
     md: '(min-width: 40rem)',
-    lg: '(min-width: 60rem)'
+    lg: '(min-width: 70rem)',
+    xl: '(min-width: 80rem)'
   },
   colors: {
     red: 'rgb(235 33 70)',

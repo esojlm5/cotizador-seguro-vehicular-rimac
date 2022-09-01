@@ -5,6 +5,6 @@ export const ContainerStyled = styled.div`
   margin: 0 auto;
   @media ${({ theme }) => theme.breakpoints.md} {
     padding: 0px 64px;
-    max-width: ${({ theme }) => theme.maxWidth.xl};
+    max-width: ${({ theme }) => theme.maxWidth.lg};
   }
 `

@@ -10,7 +10,7 @@ import {
   decrementBaseMount
 } from '@/redux/counter/counterSlice'
 
-import { BackgroundGradient, PlateCard, CoverageItem } from '@components'
+import { BackgroundGradient, PlateCard, CoverageItem, Stepper } from '@components'
 import { ReactComponent as IconTheft } from '@/assets/icon_theft.svg'
 import { ReactComponent as IconLost } from '@/assets/icon_perdidatotal.svg'
 import { ReactComponent as IconDamage } from '@/assets/icon_damage.svg'
@@ -33,7 +33,7 @@ const MakePlanContainer = () => {
   const user = useSelector(state => state.user.user)
   const theme = useContext(ThemeContext)
   const isMd = useMedia(theme.breakpoints.md)
-  const isLg = useMedia(theme.breakpoints.lg)
+  const isXl = useMedia(theme.breakpoints.xl)
   const navigate = useNavigate()
 
   const [options, setOptions] = useState([
@@ -41,7 +41,7 @@ const MakePlanContainer = () => {
       id: 1,
       icon: <IconTheft />,
       title: 'Llanta robada',
-      checked: true,
+      checked: false,
       mount: 15,
       text:
         'He salido de casa a las cuatro menos cinco para ir a la academia de ingles de mi pueblo (Sant Cugat, al lado de Barcelona) con mi bici, na llego a la academia que está en el centro del pueblo en una plaza medio-grande y dejo donde siempre la bici atada con una pitón a un sitio de esos de poner las bicis'
@@ -99,11 +99,14 @@ const MakePlanContainer = () => {
 
   return (
     <BackgroundGradient
-      linear={`to right, #F7F8FC ${isLg ? '30%' : '20%'}, white 0`}
+      linear={`to right, #F7F8FC ${isXl ? '25%' : '20%'}, white 0`}
       style={{ height: `${isMd && 'auto'}` }}
     >
       <WrapperPlan>
-        {isMd && <div className='steps'>steper</div>}
+        {isMd &&
+          <div className='steps'>
+            <Stepper currentStep={2} />
+          </div>}
         <div className='containerPlan'>
           <MakePlanStyled>
             <div className='back' onClick={handleBack}>
@@ -114,7 +117,7 @@ const MakePlanContainer = () => {
               {isMd
                 ? (
                   <TitleRimac className='watchTitle'>
-                    ¡Hola, <span>{user.name.split(' ')[0]}</span>
+                    ¡Hola, <span>{user?.name?.split(' ')[0]}</span>
                   </TitleRimac>
                   )
                 : (

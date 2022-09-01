@@ -12,7 +12,7 @@ export const WrapperPlan = styled(Container)`
       padding-top: 52px;
     }
     .steps {
-      width: 20%;
+      width: 25%;
       background-color: #F7F8FC;
       padding-top: 52px;
     }
