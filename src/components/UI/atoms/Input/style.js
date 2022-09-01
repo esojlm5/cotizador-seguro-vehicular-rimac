@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+// import { theme } from '../../../../context/ThemeProvider'
 
 export const InputWrap = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   border: 2px solid #C5CBE0;
+  border-color: ${({ error, theme }) => error && theme.colors.red};
   border-radius: 4px;
   overflow: hidden;
   color: ${({ theme }) => theme.colors.placeHolder};
@@ -18,7 +20,7 @@ export const InputWrap = styled.div`
     transition: transform linear .25s;
     cursor: auto;
     font-family: Lato;
-    
+    color: ${({ error, theme }) => error && theme.colors.red};
   }
   input {
     padding: 25px 12px 8px;

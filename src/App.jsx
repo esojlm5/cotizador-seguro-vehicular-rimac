@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Home, MakeYourPlan } from '@/pages'
+import { Home, MakeYourPlan, Thanks } from '@/pages'
 import { Layout } from '@/components/'
 
 function App () {
@@ -10,6 +10,7 @@ function App () {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='/arma-tu-plan' element={<MakeYourPlan />} />
+          ;<Route path='/gracias' element={<Thanks />} />
         </Route>
       </Routes>
     </BrowserRouter>

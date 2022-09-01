@@ -1,4 +1,7 @@
 export { default as Container } from '@components/Container/Container'
 export { default as Header } from '@components/Header/Header'
 export { default as Layout } from '@components/Layout/Layout'
+export { default as PlateCard } from '@components/PlateCard/PlateCard'
 export { default as LoginForm } from '@components/LoginForm/LoginForm'
+export { default as BackgroundGradient } from '@components/BackgroundGradient/BackgroundGradient'
+export { default as CoverageItem } from '@components/CoverageItem/CoverageItem'

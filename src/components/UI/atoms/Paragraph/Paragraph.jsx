@@ -19,8 +19,7 @@ const Paragraph = ({
       className={className}
       {...props}
     >
-      {' '}
-      {children}{' '}
+      {children}
     </P>
   )
 }

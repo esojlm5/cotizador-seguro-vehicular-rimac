@@ -5,7 +5,7 @@ export const P = styled.p`
   font-weight: 400;
   font-size: ${({ fsz }) => `${fsz}px`};
   line-height: 24px;
-  max-width: ${({ maxW }) => maxW && `${maxW}px`};
+  max-width: ${({ maxW }) => maxW ? `${maxW}px` : 'none'};
   color: ${({ theme, color }) => color || theme.colors.grayParagraph};
   @media ${({ theme }) => theme.breakpoints.md} {
     font-size: ${({ fszMd }) => `${fszMd}px`}

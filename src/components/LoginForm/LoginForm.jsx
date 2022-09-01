@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 
-import { Input, Button } from '@atoms'
+import { InputForm, ButtonSubmit } from './style'
 
 const fields = [
   {
-    order: '7',
+    order: '1',
     items: [
       {
         id: '1',
@@ -14,24 +14,58 @@ const fields = [
         label: 'Nro. de doc'
       }
     ]
+  },
+  {
+    order: '2',
+    items: [
+      {
+        id: '2',
+        type: 'text',
+        name: 'celular',
+        label: 'Celular'
+      }
+    ]
+  },
+  {
+    order: '3',
+    items: [
+      {
+        id: '3',
+        type: 'text',
+        name: 'Placa',
+        label: 'Placa'
+      }
+    ]
   }
 ]
-const LoginForm = () => {
+
+const LoginForm = ({ handleForm }) => {
   const methods = useForm()
   const {
     handleSubmit,
-    watch,
     formState: { errors }
   } = methods
-  const onSubmit = data => console.log('data', data)
-  console.log(watch('exampleRequired'))
-  console.log('errors', errors)
+
+  const onSubmit = data => {
+    handleForm(data)
+  }
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Input name='exampleRequired' hookform />
-        {errors.exampleRequired && <span>This field is required</span>}
-        <Button text='cotízalo' fullWidth type='submit' />
+        {fields.map(({ items }) => {
+          const { id, name, label } = items[0]
+          return (
+            <Fragment key={id}>
+              <InputForm
+                name={name}
+                hookform
+                label={label}
+                error={errors[name]}
+              />
+            </Fragment>
+          )
+        })}
+        <ButtonSubmit text='cotízalo' fullWidth type='submit' />
       </form>
     </FormProvider>
   )

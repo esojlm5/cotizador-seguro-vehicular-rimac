@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePluginFonts } from 'vite-plugin-fonts'
+import svgr from 'vite-plugin-svgr'
 import path from 'path'
 
 const relativePath = path.resolve(__dirname, './src')
@@ -14,7 +15,8 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, './src/hooks')
     }
   },
-  plugins: [react(),
+  plugins: [
+    react(),
     VitePluginFonts({
       google: {
         families: [
@@ -22,7 +24,8 @@ export default defineConfig({
           { name: 'Roboto' }
         ]
       }
-    })
+    }),
+    svgr()
   ],
   css: {
     preprocessorOptions: {

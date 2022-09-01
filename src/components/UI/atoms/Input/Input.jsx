@@ -12,6 +12,7 @@ const Input = ({
   onClick,
   name,
   hookform,
+  error,
   // register,
   ...props
 }) => {
@@ -48,6 +49,7 @@ const Input = ({
       }
       className={className}
       onClick={handleClick}
+      error={error}
     >
       <label>{label}</label>
       {hookform ? (

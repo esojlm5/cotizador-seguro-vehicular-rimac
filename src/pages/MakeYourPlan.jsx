@@ -1,7 +1,9 @@
 import React from 'react'
 
+import { MakePlanContainer } from '@/containers'
+
 const MakeYourPlan = () => {
-  return <div>arma tu plan</div>
+  return <MakePlanContainer />
 }
 
 export default MakeYourPlan

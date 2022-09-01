@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { clsx } from 'clsx'
-import styles from './style.module.scss'
+
+import { ContainerStyled } from './style'
 
 const Container = ({ children, className, ...props }) => {
   return (
-    <div className={clsx(styles.container, className)} {...props}>
+    <ContainerStyled className={className} {...props}>
       {children}
-    </div>
+    </ContainerStyled>
   )
 }
 
