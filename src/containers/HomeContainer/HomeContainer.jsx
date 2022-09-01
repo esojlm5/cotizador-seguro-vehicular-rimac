@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 
 import { Container, LoginForm, BackgroundGradient } from '@components'
 import { TitleRimac, Paragraph } from '@atoms'
-import { setUser } from '@/redux/user/UserSlice'
+import { setUser } from '@/redux/User/UserSlice'
 import { ContainerSecure, WrapperSecure } from './style'
 
 const HomeContainer = () => {
