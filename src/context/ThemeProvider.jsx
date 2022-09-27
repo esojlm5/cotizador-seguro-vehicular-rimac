@@ -1,15 +1,5 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-// $xs: 20rem;
-// $sm: 30rem;
-// $md: 40rem;
-// $lg: 50rem;
-// $xl: 60rem;
-// $xl2: 70rem;
-// $xl3: 80rem;
-// $xl4: 90rem;
-// $xl5: 100rem;
-// $full: 100%;
 export const theme = {
   maxWidth: {
     md: '40rem',

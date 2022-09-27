@@ -23,6 +23,8 @@ const HomeContainer = () => {
     if (filterUser) {
       dispatch(setUser(filterUser))
       navigate('/arma-tu-plan')
+    } else {
+      alert(`user doesn't exist try with Bret as username`)
     }
   }
 
